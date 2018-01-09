@@ -223,3 +223,6 @@ to list all words in the dictionary which starts with **trie** in size order:
 * Figure out how to better deal with iteration on a subtrie
     * do you iterate on the subtrie itself or the words in the list?
 * Test for robustness
+
+## Credit
+Luciano Romalho's, [**Fluent Python**](http://shop.oreilly.com/product/0636920032519.do), is an amazing resource for taking your Python skill to the next level. I would highly recommend picking it up!

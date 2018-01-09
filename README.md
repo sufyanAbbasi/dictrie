@@ -1,5 +1,7 @@
 # Dictrie
 
+> Note: this is Python 2.7 compatible, not Python 3 (for now)
+
 ## Trie Overview
 
 A ***trie*** is a search tree that optimizes word dictionary traversal by organizing words in a tree, character by character. 
@@ -105,7 +107,7 @@ if __name__ == "__main__":
 
 
 ### Initialization
-Initialize a bare tree by:
+Initialize a bare trie by:
 
 ```python
 trie = Dictrie()

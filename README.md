@@ -2,9 +2,9 @@
 
 ## Trie Overview
 
-A ***trie*** is a search tree that optimizes word dictionary traversal by organizing words in a tree character by character. 
+A ***trie*** is a search tree that optimizes word dictionary traversal by organizing words in a tree, character by character. 
 
-Let's say our dictionary contained **"hell", "hello",** and **"help"**. The following tree represents the words in our dictionary:
+Given a dictionary containing **"hell", "hello",** and **"help"**, the following tree represents the words in our dictionary:
 ```
              h
              |
@@ -38,35 +38,36 @@ In Python, a trie can be represented with nested dictionaries like so:
       }
 ```
 
+where, instead of an underscore, we indicate the end of valid word with a space and empty dictionary. 
+
 This library extends common dictionary indexing to work with tries, for example, `trie['hel']` returns a subtrie:
 ```python
-{'p': {' ': {}}, 
- 'l': {' ': {}, 
-       'o': {' ': {}}}}
+trie['hel']
+>>> {'p': {' ': {}}, 
+     'l': {' ': {}, 
+           'o': {' ': {}}}}
 ```
 
-or 
+and 
 
 ```python
 'hello' in trie
 >>> True
 ```
 
-and adds features like iterating over the words in the trie at a given node.
+tests whether a key is contained in the trie. It also adds features like iterating over the words in the trie, etc.
 
+### Quickstart
 
-## Dictrie
-### quickstart
-
-To start using ```Dictrie```, clone this repository:
+To start using `Dictrie`, clone this repository:
 
 ```bash
 git clone https://github.com/sufyanAbbasi/dictrie
 ```
 
-or download the ```dictrie.py``` file here: https://github.com/sufyanAbbasi/dictrie/dictrie.py
+or download the `dictrie.py` file here: https://github.com/sufyanAbbasi/dictrie/dictrie.py
 
-Move this file to your working directory (sorry, no ```pip``` yet!) and run the following:
+Move this file to your working directory (sorry, no `pip` yet!) and run the following:
 
 ```python
 from dictrie import Dictrie
@@ -103,7 +104,7 @@ if __name__ == "__main__":
 ```
 
 
-### initialization
+### Initialization
 Initialize a bare tree by:
 
 ```python
@@ -116,19 +117,20 @@ Or by supplying any number of iterables (list, set, etc.) of words:
 trie = Dictrie(['hell', 'help', 'hello'], {'hellish', 'hellcat'})
 ```
 
-### building a trie
-Function:
+### Building a Trie
+The following two methods adds words to the dictionary:
+As a function:
 ```python
 trie.build_trie(['hell', 'help', 'hello'])
 ```
-Iteration:
+Through iteration:
 ```python
 for word in ['hell', 'help', 'hello']:
     trie[' '] = word
 ```
-The key is ignored in this form and each word is automatically placed in the trie.
+Here, the key is ignored in this form and each word is automatically placed in the trie.
 
-### accessing a subtrie
+### Accessing a Subtrie
 The Dictrie class extends dictionaries to allow indexing by word substrings. For example:
 ```python
 trie['hel']
@@ -138,7 +140,7 @@ produces a subtrie of the words that start with the key:
 >>> {'p': {' ': {}}, 'l': {' ': {}, 'o': {' ': {}}}}
 ```
 
-### testing for existence
+### Testing for Existence
 The Dictrie class supports the ```in``` keyword, which checks if the sequence of characters exists in the trie:
 ```python
 'hel' in trie
@@ -154,7 +156,7 @@ trie.is_word('hello')
 >>> True
 ```
 
-### iteration
+### Iteration
 ```python
 for word in trie:
     print word
@@ -180,7 +182,7 @@ prints every word that begins with **hell** from shortest to longest:
     hello
 ```
 
-### Testing this trie:
+### Testing Dictrie:
 [github.com/dwy/english-words](https://github.com/dwyl/english-words) is a fantastic github repo with over 450,000 english words. Download the text file, [words_alpha.txt](https://github.com/dwyl/english-words/blob/master/words_alpha.txt), and place it in your working directory, and run:
 
 ```python
@@ -221,7 +223,7 @@ to list all words in the dictionary which starts with **trie** in size order:
 ## To-Do List
 * Limit key type to strings
 * Figure out how to better deal with iteration on a subtrie
-    * do you iterate on the subtrie itself or the words in the list?
+    * Iterate on the subtrie itself or the words in the list?
 * Test for robustness
 
 ## Credit

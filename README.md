@@ -119,6 +119,12 @@ Or by supplying any number of iterables (list, set, etc.) of words:
 trie = Dictrie(['hell', 'help', 'hello'], {'hellish', 'hellcat'})
 ```
 
+Or by supplying a trie with the `dict` keyword:
+
+```python
+trie = Dictrie(dict={'h':{e:{y:{' ': {}}}}})
+```
+
 ### Building a Trie
 The following two methods adds words to the dictionary:
 As a function:
